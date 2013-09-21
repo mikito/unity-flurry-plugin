@@ -13,7 +13,9 @@ Unity Flurry Plugin
  * イベントのログを取りたいところで以下呼び出し
    * FlurryManager.logEvent(string eventId);
    * FlurryManager.logEvent(string eventId, Hashtable parameters);
-    
+ * [iOSのみ] Xcodeにフレームワークの追加
+   * Security.Framework
+   
 備考
 --------
  * ロケーション情報取る場合はAndroidManifestに以下のいずれかを追加
@@ -22,7 +24,7 @@ Unity Flurry Plugin
  * iOSロケーションは未実装
  * キャッチしてない例外やエラーを自動的に送る
  * Flurry SDK Version 
-    * iOS : 4.1.0
+    * iOS : 4.2.3
     * Android : 3.1.0
  
 
