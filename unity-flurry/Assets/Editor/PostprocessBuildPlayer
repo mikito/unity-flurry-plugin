@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+
+# The lower version of xcodeproj is not available because the API has changed.
+gem "xcodeproj", ">=0.14.0"
+require 'xcodeproj'
+
+if ARGV[1] != "iPhone"
+  exit
+end
+
+projpath = ARGV[0] + "/Unity-iPhone.xcodeproj"
+
+proj = Xcodeproj::Project.open(projpath)
+
+proj.targets.each do |target|
+  # Add Frameworks
+  target.add_system_framework("Security")
+end
+
+# Change framework path type to 'Relative to SDK'
+proj["Frameworks"]["iOS"].files.each do |file|
+  file.path.gsub!(/.*(System\/.*\.framework)$/, '\1')
+  file.source_tree.gsub!(/DEVELOPER_DIR/, "SDKROOT")
+end
+
+proj.save(projpath)

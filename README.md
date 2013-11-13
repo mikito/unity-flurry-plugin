@@ -15,6 +15,14 @@ Unity Flurry Plugin
    * FlurryManager.logEvent(string eventId, Hashtable parameters);
  * [iOSのみ] Xcodeにフレームワークの追加
    * Security.Framework
+
+Xcode/フレームワーク自動追加
+----------------
+ * PostprocessBuildPlayerによりUnityビルド後に自動的にXcodeの設定を行う
+ * 準備
+   * xcodeproj gemをインストールする(0.14.0で動作)
+     * sudo gem install xcodeproj
+ * rvmを使用している場合はrvm use systemしてからインストールしてください...
    
 備考
 --------
