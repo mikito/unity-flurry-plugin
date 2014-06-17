@@ -32,7 +32,7 @@ Xcode/フレームワーク自動追加
  * iOSロケーションは未実装
  * キャッチしてない例外やエラーを自動的に送る
  * Flurry SDK Version 
-    * iOS : 4.3.0
+    * iOS : 5.1.0
     * Android : 3.3.0
  
 
