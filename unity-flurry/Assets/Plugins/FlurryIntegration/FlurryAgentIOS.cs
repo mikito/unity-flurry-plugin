@@ -30,6 +30,9 @@ public class FlurryAgentIOS : FlurryAgent
     [DllImport("__Internal")]
     private static extern void flurryLogError(string errorId, string message);
 
+    [DllImport("__Internal")]
+    private static extern void flurrySetCrashReporting(bool enabled);
+
     public override void onStartSession(string apiKey)
     {
         flurryStartSession(apiKey);
@@ -95,6 +98,11 @@ public class FlurryAgentIOS : FlurryAgent
     public override void setReportLocation(bool reportLocation)
     {
         Debug.Log("pending");
+    }
+
+    public override void setCrashReporting(bool enabled)
+    {
+        flurrySetCrashReporting(enabled);
     }
 
     public override void Dispose() {}

@@ -1,11 +1,6 @@
 #import "Flurry.h"
 
-void uncaughtExceptionHandler(NSException *exception) {
-    [Flurry logError:@"Uncaught" message:@"Crash!" exception:exception];
-}
-
 void flurryStartSession(char *appKey){
-    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     [Flurry startSession:[NSString stringWithCString:appKey encoding:NSASCIIStringEncoding]];
 }
 
@@ -44,6 +39,11 @@ void flurryLogError(char *errorId, char *message){
     [Flurry logError:[NSString stringWithCString:errorId encoding:NSASCIIStringEncoding]
                       message:[NSString stringWithCString:message encoding:NSASCIIStringEncoding]
                     exception:NULL];
+}
+
+void flurrySetCrashReporting(BOOL enabled)
+{
+    [Flurry setCrashReportingEnabled: enabled];
 }
 
 bool flurryIsIpad(){

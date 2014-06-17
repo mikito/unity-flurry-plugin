@@ -94,6 +94,11 @@ public class FlurryAgentAndroid : FlurryAgent
         cls_FlurryAgent.CallStatic("setReportLocation", reportLocation);
     }
 
+    public override void setCrashReporting(bool enabled)
+    {
+        cls_FlurryAgent.CallStatic("setCaptureUncaughtExceptions", enabled);
+    }
+
     public void setContinueSessionMillis(long milliseconds)
     {
         cls_FlurryAgent.CallStatic("setContinueSessionMillis", milliseconds);

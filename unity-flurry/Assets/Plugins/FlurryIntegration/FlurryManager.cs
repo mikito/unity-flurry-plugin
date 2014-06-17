@@ -51,6 +51,7 @@ public class FlurryManager : MonoBehaviour
             if (apiKey != null)
             {
                 flurryAgent = new FlurryAgentIOS();
+                flurryAgent.setCrashReporting(true);
                 flurryAgent.onStartSession(apiKey);
             }
         }
@@ -60,6 +61,7 @@ public class FlurryManager : MonoBehaviour
         if (Application.platform == RuntimePlatform.Android && apiKey_Android != null)
         {
             flurryAgent = new FlurryAgentAndroid();
+            flurryAgent.setCrashReporting(true);
             flurryAgent.onStartSession(apiKey_Android);
         }
 #endif

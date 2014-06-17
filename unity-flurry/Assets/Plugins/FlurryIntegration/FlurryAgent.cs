@@ -29,5 +29,7 @@ public abstract class FlurryAgent : IDisposable
 
     abstract public void setReportLocation(bool reportLocation);
 
+    abstract public void setCrashReporting(bool enabled);
+
     abstract public void Dispose();
 };
